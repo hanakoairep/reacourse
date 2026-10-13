@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pricing - REA course</title>
+<link rel="preload" href="assets/fonts/dm-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='5' y='5' width='22' height='22' fill='%238EBDF9'/><rect x='10' y='10' width='5' height='12' fill='%23000'/><rect x='17' y='10' width='5' height='5' fill='%23000'/><rect x='17' y='17' width='5' height='5' fill='%23E4663C'/></svg>">
+</head>
+<body>
+<header class="nav">
+  <nav class="win" aria-label="Main">
+    <a class="brand" href="index.html"><span class="dots"><i></i><i></i><i></i></span>REA course</a>
+    <span class="fill"></span>
+    <div class="links"><a class="login" href="course.html">Log in</a><a href="index.html#syllabus">Syllabus</a><a class="cta" href="checkout.html">Pay $<span data-price></span></a></div>
+  </nav>
+</header>
+
+<main class="page ht" data-ht data-ink="#2F6BF0" data-step="8" data-blobs="4" data-seed="3">
+  <div class="wrap">
+    <div class="steps" aria-label="Progress"><span class="now">1 course</span><span>2 method</span><span>3 payment</span></div>
+
+    <div class="flow">
+      <div class="win lift">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">reacourse.pkg</span><span class="x"></span></div>
+        <div class="body" style="padding:28px">
+          <h1 class="mega" style="font-size:clamp(30px,5.4vw,76px)">REA course</h1>
+          <p style="font-weight:600;max-width:52ch;margin:14px 0 26px">The full course on reading software you did not write, and rebuilding the parts you want as code that is yours. One payment, yours for good.</p>
+          <div class="price"><sup>$</sup><span data-price></span></div>
+          <div class="priceline"><span class="tag">one payment</span><span class="tag">lifetime access</span><span class="tag hot">card or USDT</span></div>
+          <ul class="chk">
+            <li>Twenty lessons across five parts, from the install to a shipped rebuild</li>
+            <li>The router: Electron, .NET and Unity, native binaries, APK, web captures, EVM bytecode, firmware</li>
+            <li>Install and engine setup for Ghidra, Hopper, IDA and JADX, plus the two paths that need none</li>
+            <li>Recon, decompilation and annotation: strings, cross-references, naming, patterns and effort levels</li>
+            <li>Obfuscation: the five techniques, what each looks like, and the budget rule that stops a wasted weekend</li>
+            <li>The swarm: a controller and workers so five hundred functions keep one name per struct</li>
+            <li>Clean room, behavior-only specs, parity testing and releasing your rebuild as an MCP server</li>
+            <li>Copy-paste prompts for every step, and the legal line explained with the cases that settled it</li>
+          </ul>
+          <div style="margin-top:30px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+            <a class="btn" href="checkout.html"><span>Pay $<span data-price></span></span></a>
+            <span style="font-size:13px;font-weight:600">Next you choose card or crypto.</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sticky">
+        <div class="win">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">inside.txt</span><span class="x"></span></div>
+          <ul class="mini" id="mini"></ul>
+        </div>
+        <div class="win grey" style="margin-top:20px">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">heads_up.md</span><span class="x"></span></div>
+          <div class="body" style="font-size:13px;font-weight:500">REA is free and MIT licensed, and everything runs on your own machine. You only need Node 22 or newer and an agent such as Claude Code to start.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/syllabus.js"></script>
+<script>
+document.getElementById("mini").innerHTML = REA_SYLLABUS.map(function (m, i) {
+  return '<li><span>' + (i + 1) + '</span><div><b>' + m.title + '</b><small>' + m.lessons.map(function (l) { return l.t; }).join(", ") + '</small></div></li>';
+}).join("");
+</script>
+</body>
+</html>

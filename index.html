@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>REA course - read and rebuild any app you did not write</title>
+<meta name="description" content="Twenty lessons on REA and Opus 5.5: route any target, read it down to the binary, and rebuild the feature you envy as code that is legally yours.">
+<meta property="og:title" content="REA course">
+<meta property="og:description" content="Closed source used to mean you will never know. Now it means show me the evidence.">
+<link rel="preload" href="assets/fonts/dm-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jbm-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><rect x='5' y='5' width='22' height='22' fill='%238EBDF9'/><rect x='10' y='10' width='5' height='12' fill='%23000'/><rect x='17' y='10' width='5' height='5' fill='%23000'/><rect x='17' y='17' width='5' height='5' fill='%23E4663C'/></svg>">
+</head>
+<body>
+
+<header class="nav">
+  <nav class="win" aria-label="Main">
+    <a class="brand" href="index.html"><span class="dots"><i></i><i></i><i></i></span>REA course</a>
+    <span class="fill"></span>
+    <div class="links"><a class="login" href="course.html">Log in</a>
+      <a href="#router">The router</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="pricing.html">Pricing</a>
+      <a class="cta" href="pricing.html">Get the course</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero ht" data-ht data-calm="0,0.3,0.48,0.9" data-follow data-ink="#2F6BF0" data-step="8" data-blobs="6" data-seed="11">
+  <div class="wrap grid">
+    <h1 class="mega hero-title"><span>Reverse</span><span>Engineer</span><span>Anything</span></h1>
+    <div>
+      <p class="sub">Read the software you did not write</p>
+      <p class="lede">Every app on your disk is code you are allowed to read. REA puts a real disassembly engine behind your agent, so you ask in plain English and get the function, the file, the call site and what is still unknown. Twenty lessons from the install to a rebuild that is legally yours.</p>
+      <div class="actions">
+        <a class="btn" href="pricing.html">Get the course</a>
+        <a class="btn light" href="#router">Try the router</a>
+      </div>
+    </div>
+
+    <div class="stack" aria-label="Example REA investigation">
+      <div class="win grey w1">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">target</span><span class="x"></span></div>
+<pre class="code">$ rea open_binary \
+  <span class="s">"/Applications/Target.app/.../Target"</span>
+<span class="c"># arm64 · 1,284 functions · local only</span></pre>
+      </div>
+      <div class="win w2">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">question</span><span class="x"></span></div>
+<pre class="code" id="hq"><span class="s">"Why does the % button show 220
+ when I type 200 + 10%?"</span></pre>
+      </div>
+      <div class="win lift w3">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t" id="hr-title">answer  212 ms</span><span class="x"></span></div>
+        <div class="dist" id="hero-dist">
+          <div class="row" data-k="observation"><span>observation</span><span class="track"><span class="fillb"></span></span><span class="p">0.00</span></div>
+          <div class="row" data-k="inference"><span>inference</span><span class="track"><span class="fillb"></span></span><span class="p">0.00</span></div>
+          <div class="row" data-k="unknown"><span>unknown</span><span class="track"><span class="fillb"></span></span><span class="p">0.00</span></div>
+          <div class="meta"><span id="hr-conf">9 claims, each with an address</span><span id="hr-read" class="tag">reading</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="run">
+    <span><b>100K+</b> GitHub stars in three months</span><span><b>MIT</b> licensed</span><span>runs <b>locally</b>, nothing uploaded</span><span><b>20</b> target types</span><span>every claim carries <b>evidence</b></span><span>Opus 5.5, <b>five</b> effort levels</span><span>Electron and .NET need <b>no engine</b></span>
+    <span><b>100K+</b> GitHub stars in three months</span><span><b>MIT</b> licensed</span><span>runs <b>locally</b>, nothing uploaded</span><span><b>20</b> target types</span><span>every claim carries <b>evidence</b></span><span>Opus 5.5, <b>five</b> effort levels</span><span>Electron and .NET need <b>no engine</b></span>
+  </div>
+</div>
+
+<section class="sec dots">
+  <div class="wrap">
+    <h2 class="h2">Three jobs. Only one of them can see the binary.</h2>
+    <p class="intro">An agent cannot run a disassembler, and a disassembler cannot explain anything. REA sits between them and turns a sealed file into questions the model can answer with proof attached.</p>
+    <div class="split">
+      <div class="win">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">engine</span><span class="x"></span></div>
+        <div class="body"><div class="who">Ghidra, Hopper, IDA</div><p>Loads the file, finds the functions, turns machine instructions into something close to C. Knows everything, explains nothing.</p><ul><li>load</li><li>decompile</li><li>xrefs</li></ul></div>
+      </div>
+      <div class="win lift mid">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">rea</span><span class="x"></span></div>
+        <div class="body"><div class="who">REA</div><p>Exposes the engine as callable tools over MCP, routes each target to the right one, and tags every finding as observation, inference or unknown.</p><ul><li>route</li><li>inspect</li><li>cite</li></ul></div>
+      </div>
+      <div class="win">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">opus 5.5</span><span class="x"></span></div>
+        <div class="body"><div class="who">The model</div><p>Names the variables, spots the pattern, writes the spec and builds your version. Never sees the file, only the findings.</p><ul><li>name</li><li>explain</li><li>rebuild</li></ul></div>
+      </div>
+    </div>
+    <p class="rule">Everything runs on your machine. The only thing that leaves is the findings the model needs to reason about, and every one of them points at an address.</p>
+  </div>
+</section>
+
+<section class="sec" id="router">
+  <div class="wrap">
+    <h2 class="h2">A router you can poke</h2>
+    <p class="intro">The first afternoon people lose is spent opening a disassembler on an app whose JavaScript was sitting right there. Pick a target and watch which entry tool the course teaches you to reach for, and what you actually need installed.</p>
+
+    <div class="gate">
+      <div class="controls">
+        <div class="presets" role="group" aria-label="Target types">
+          <button type="button" data-t="electron" aria-pressed="true">Electron app</button>
+          <button type="button" data-t="unity">Unity game</button>
+          <button type="button" data-t="native">Native binary</button>
+          <button type="button" data-t="apk">Android APK</button>
+          <button type="button" data-t="web">Website or HAR</button>
+          <button type="button" data-t="evm">Contract bytecode</button>
+        </div>
+        <div class="sl"><label>what it is <output id="o-what"></output></label><small id="s-what"></small></div>
+        <div class="sl"><label>engine you install <output id="o-eng"></output></label><small id="s-eng"></small></div>
+        <div class="sl"><label>first thing you get back <output id="o-first"></output></label><small id="s-first"></small></div>
+        <div class="sl"><label>covered in lesson <output id="o-les"></output></label><small id="s-les"></small></div>
+      </div>
+      <div class="out">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">router.sh</span><span class="x"></span></div>
+<pre class="code" id="gcode"><span class="ln"><span class="c"># name the file, let the agent pick the door</span></span><span class="ln"> </span><span class="ln" data-l="electron">rea analyze-javascript-application <span class="s">/path/app</span></span><span class="ln" data-l="unity">rea inspect_managed_artifact <span class="s">/path/Assembly.dll</span></span><span class="ln" data-l="native">rea open_binary <span class="s">/path/Target</span> --provider hopper</span><span class="ln" data-l="apk">rea inspect-android-package <span class="s">/path/App.apk</span></span><span class="ln" data-l="web">rea inspect_artifact <span class="s">/path/capture.har</span></span><span class="ln" data-l="evm">rea inspect-evm-interface <span class="s">./runtime.hex</span> hex</span></pre>
+        <div class="verdict" aria-live="polite"><div class="big" id="g-big">none</div><p id="g-why"></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec black ht" data-ht data-calm="0,0,0.78,1" data-ink="#8EBDF9" data-step="9" data-blobs="3" data-seed="4">
+  <div class="wrap">
+    <h2 class="h2">Rent it forever, or read it once.</h2>
+    <p class="intro">Pick what you pay every month for one tool whose features are already sitting on your disk. The bar underneath is what your own build costs to run after the weekend you spend on it.</p>
+    <div class="calc">
+      <div class="knob">
+        <label for="s-vol" style="font-weight:700;font-size:13px">your subscription, per month</label>
+        <div class="num" id="o-vol">$60</div>
+        <input type="range" id="s-vol" min="5" max="300" step="5" value="60" aria-describedby="o-vol">
+      </div>
+      <div class="bars">
+        <div><div class="lab"><span>five years of the subscription</span><span class="v" id="c-llm">$3,600</span></div><div class="b"><i id="b-llm" style="width:100%"></i></div></div>
+        <div><div class="lab"><span>five years of your own build</span><span class="v" id="c-jev">$0</span></div><div class="b jev"><i id="b-jev" style="width:0.6%"></i></div></div>
+        <p style="margin:0;font-weight:700">That is <span id="c-ratio" style="color:var(--pink)">$3,600</span> for a feature set you are allowed to open and read today.</p>
+      </div>
+    </div>
+    <p class="fine">Arithmetic, not a promise: your own number multiplied by sixty months. The rebuild still costs you a weekend and whatever tokens the investigation burns, and plenty of products are worth paying for. The point of the course is that you get to decide which ones, instead of guessing from the outside.</p>
+  </div>
+</section>
+
+<section class="sec dots" id="syllabus">
+  <div class="wrap">
+    <h2 class="h2">Twenty lessons, blank terminal to shipped rebuild</h2>
+    <p class="intro">Five parts: the tool, every target type it reads, how to read deeply, how to scale past what one chat can hold, and how to turn findings into software that belongs to you. Every chapter ends with commands that run and prompts you can paste.</p>
+    <div class="mods" id="mods"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="h2">What this already produced</h2>
+    <p class="intro">Public rebuilds from the first weeks after REA shipped. Look at the right column: those are not claims, they are test counts.</p>
+    <div class="win lift">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">shipped.csv</span><span class="x"></span></div>
+      <div class="scroll">
+        <table class="tbl">
+          <thead><tr><th>who</th><th>what</th><th>the receipt</th></tr></thead>
+          <tbody>
+            <tr><td>ArtCraft</td><td>Twelve clean-room rebuilds of Adobe and Office tools, written from scratch in Rust</td><td class="num">free and open source</td></tr>
+            <tr><td>Aegis case</td><td>Authenticator with 3,077 classes taken apart, code generation recovered and rebuilt</td><td class="num">133 of 133 tests pass</td></tr>
+            <tr><td>DX-Ball</td><td>Sound-pan helper from a 1996 game recovered and rewritten in C</td><td class="num">3,205 tests, 63 of 63 bytes</td></tr>
+            <tr><td>Touhou rebuild</td><td>Whole game reconstructed with agents over about twelve days</td><td class="num">696 of 697 exact matches</td></tr>
+            <tr><td>Super Mario Sunshine</td><td>Work-in-progress native PC port built with Claude and Codex</td><td class="num">365 agent hours, 17.3B tokens</td></tr>
+            <tr class="star"><td>One developer</td><td>Bought Steam game decompiled to C# and opened in Unity, on medium reasoning</td><td class="num">under 30 minutes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec pink">
+  <div class="wrap">
+    <h2 class="h2">What it can do, and what it can't</h2>
+    <p class="intro">The course is specific about the edges, because the edges are where people waste a weekend or ship something that is not theirs.</p>
+    <div class="contract">
+      <div class="win can">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">it_can.txt</span><span class="x"></span></div>
+        <ul>
+          <li>Open Electron, .NET, native, APK, WASM, Go and firmware targets</li>
+          <li>Turn one function into pseudocode and then into named, typed code</li>
+          <li>Show the exact address, bytes and call site behind every claim</li>
+          <li>Trace a single feature from a click down through the layers</li>
+          <li>Diff two releases and tell you what actually changed</li>
+          <li>Audit an APK for permissions, trackers and the domains it talks to</li>
+          <li>Recover the interface of an unverified contract from raw bytecode</li>
+        </ul>
+      </div>
+      <div class="win cannot">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">it_cannot.txt</span><span class="x"></span></div>
+        <ul>
+          <li>Touch code that runs on someone's server and was never shipped to you</li>
+          <li>Hand you the original source, because a decompile is a reconstruction</li>
+          <li>Beat stage-three obfuscation, which benchmarks at zero</li>
+          <li>Make a stripped C++ binary as easy as a Unity game</li>
+          <li>Give you an IDA, Hopper or JEB license</li>
+          <li>Make copied code legal because an agent pasted it</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Reading an app on your own machine is learning. Rebuilding a feature from its behavior is how the industry has worked since the eighties. <b>Copying the code, cracking paid features or publishing someone else's decompile is the part that gets you sued.</b> Part five is about staying on the right side of that line on purpose, not by luck.</p>
+  </div>
+</section>
+
+<section class="sec dots">
+  <div class="wrap">
+    <h2 class="h2">Before you buy</h2>
+    <div class="faq">
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">requirements.md</span><span class="x"></span></div><div class="body"><h3>What do I need?</h3><p>Node 22 or newer, an agent such as Claude Code, and a machine you own. Two of the six target types need no engine at all, so you can finish the first two parts before installing Ghidra.</p></div></div>
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">skill_level.md</span><span class="x"></span></div><div class="body"><h3>Do I need to know assembly?</h3><p>No. The whole point is that you read findings, not instructions. You do need to be comfortable in a terminal and able to read code in one language.</p></div></div>
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">legal.md</span><span class="x"></span></div><div class="body"><h3>Is this piracy?</h3><p>No, and part five explains exactly why, with the cases that settled it. The course teaches clean-room rebuilds from behavior, and it is explicit about what crosses the line.</p></div></div>
+      <div class="win"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="t">access.md</span><span class="x"></span></div><div class="body"><h3>How do I get in after paying?</h3><p>Access opens for the email you paid with. You log in with that email and a 6-digit code. One payment, lifetime access, card or USDT.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final ht" data-ht data-calm="0,0.6,0.42,1" data-follow data-ink="#2F6BF0" data-step="8" data-blobs="5" data-seed="29">
+  <div class="wrap">
+    <h2 class="mega"><span>Closed source</span><span>means show me</span><span>the evidence</span></h2>
+    <p>Lifetime access to all twenty lessons: the router across every target type, recon and decompilation, obfuscation budgets, the swarm, the clean room, and the parity report that proves your rebuild works.</p>
+    <a class="btn" href="pricing.html">Get the course</a>
+  </div>
+</section>
+
+</main>
+
+
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/syllabus.js"></script>
+<script>
+(function () {
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ----- syllabus ----- */
+  var box = document.getElementById("mods");
+  REA_SYLLABUS.forEach(function (m, i) {
+    var d = document.createElement("details");
+    d.className = "mod"; if (i === 0) d.open = true;
+    d.innerHTML = '<summary><span class="no">' + (i + 1) + '</span><span class="nm">' + m.title + '<small>' + m.sub + '</small></span><span class="tg" aria-hidden="true"></span></summary><ol>' +
+      m.lessons.map(function (l) { return '<li><span>' + l.n + '</span><div><b>' + l.t + '</b><p>' + l.d + '</p></div></li>'; }).join("") + "</ol>";
+    box.appendChild(d);
+  });
+
+  /* ----- evidence widget ----- */
+  function paint(el, p) {
+    var best = Object.keys(p).reduce(function (a, b) { return p[a] >= p[b] ? a : b; });
+    el.querySelectorAll(".row").forEach(function (r) {
+      var k = r.dataset.k;
+      r.querySelector(".fillb").style.width = (p[k] * 100).toFixed(1) + "%";
+      r.querySelector(".p").textContent = p[k].toFixed(2);
+      r.classList.toggle("win-row", k === best);
+    });
+    return best;
+  }
+
+  var heroCases = [
+    { q: '"Why does the % button show 220\n when I type 200 + 10%?"',
+      p: { observation: 0.67, inference: 0.22, unknown: 0.11 }, n: "9 claims, each with an address", ms: 212, read: "after +, it takes 10% of the first number" },
+    { q: '"Where does Export notes write\n the file, and what is in it?"',
+      p: { observation: 0.80, inference: 0.13, unknown: 0.07 }, n: "renderer, bridge and handler traced", ms: 88, read: "notes.csv in Downloads, id and title" },
+    { q: '"List every tracking SDK and\n domain this APK talks to."',
+      p: { observation: 0.58, inference: 0.28, unknown: 0.14 }, n: "class and method on every finding", ms: 143, read: "3 analytics SDKs, 11 domains" }
+  ];
+  var hd = document.getElementById("hero-dist"), hq = document.getElementById("hq"), hi = 0;
+  function hero() {
+    var c = heroCases[hi % heroCases.length];
+    paint(hd, c.p);
+    hq.innerHTML = '<span class="s">' + c.q + '</span>';
+    document.getElementById("hr-conf").textContent = c.n;
+    document.getElementById("hr-read").textContent = c.read;
+    document.getElementById("hr-read").className = "tag" + (hi % 3 === 0 ? " hot" : "");
+    document.getElementById("hr-title").textContent = "answer  " + c.ms + " ms";
+    hi++;
+  }
+  setTimeout(hero, 350);
+  if (!reduce) setInterval(hero, 4600);
+
+  /* ----- target router ----- */
+  var T = {
+    electron: { what: "javascript", whatS: "Notion, Slack, Discord, Obsidian and most desktop apps you use daily. The code ships readable inside app.asar.",
+      eng: "none", engS: "Nothing to install. This is why the first real investigation happens on evening one.",
+      first: "modules", firstS: "Modules, imports and the IPC boundary between the window and the main process, in seconds.",
+      les: "05", lesS: "Part two, lesson 05. The notes-app trace runs end to end here.",
+      big: "none", why: "Electron apps carry their JavaScript with them. Opening a disassembler here is the single most common first mistake." },
+    unity: { what: ".net", whatS: "Most Unity games ship their game logic as managed .NET assemblies rather than compiled native code.",
+      eng: "none", engS: "No engine, no license, no setup beyond REA itself.",
+      first: "c# source", firstS: "Readable classes and methods, close enough to the original to open in an editor.",
+      les: "06", lesS: "Part two, lesson 06, including what to do when a game ships IL2CPP instead.",
+      big: "none", why: "This is the path behind the bought Steam game that was decompiled and running in Unity in under half an hour." },
+    native: { what: "mach-o / elf / pe", whatS: "Desktop apps, old games, drivers and anything compiled down to machine code.",
+      eng: "ghidra", engS: "Ghidra 12.1.x with JDK 21, or Hopper on macOS, or IDA if you already own it.",
+      first: "function map", firstS: "Architecture, function count, segments, strings and the cross-reference ranking that tells you where to start.",
+      les: "07", lesS: "Part two, lesson 07, then the whole of part three reads one of these properly.",
+      big: "ghidra", why: "The deepest path and the slowest. Worth it when the logic you want was compiled away, and the course sorts by cross-references so you never read in file order." },
+    apk: { what: "android package", whatS: "Your broker, your exchange, that free signals app from a Telegram channel.",
+      eng: "jadx", engS: "A full JDK 17 or newer plus jadx-headless-mcp.",
+      first: "permissions", firstS: "Every permission, every analytics SDK and every domain the app talks to, with the class and method behind each one.",
+      les: "08", lesS: "Part two, lesson 08. The audit prompt is in the lesson, ready to paste.",
+      big: "jadx", why: "The most immediately useful thing in the course for anyone who installs finance apps. You find out what the thing on your phone actually does." },
+    web: { what: "page or capture", whatS: "Page structure, scripts and the network requests behind a feature, live or from a saved HAR file.",
+      eng: "chrome", engS: "Any Chrome-family browser. Nothing else.",
+      first: "request map", firstS: "Which script fires which request, with payloads, so you can separate server work from client work.",
+      les: "08", lesS: "Part two, lesson 08, next to the APK and bytecode paths.",
+      big: "chrome", why: "This is also where the limit lives: whatever runs on their server was never shipped to you, and no tool changes that." },
+    evm: { what: "contract bytecode", whatS: "Unverified contracts with no published source, which is most of them.",
+      eng: "linux x64", engS: "Runs on Linux x64 for now, and needs no commercial engine.",
+      first: "function list", firstS: "Recovered function selectors with the state-changing ones flagged: mint, blacklist, pause, fee change, owner-only transfer.",
+      les: "08", lesS: "Part two, lesson 08, including how to read a flag as check deeper rather than proof.",
+      big: "linux", why: "Names recovered from bytecode are educated guesses, so the lesson is as much about calibration as about the command." }
+  };
+  var lines = {}; document.querySelectorAll("#gcode .ln[data-l]").forEach(function (l) { lines[l.dataset.l] = l; });
+  function setT(k) {
+    var t = T[k];
+    document.getElementById("o-what").textContent = t.what;
+    document.getElementById("s-what").textContent = t.whatS;
+    document.getElementById("o-eng").textContent = t.eng;
+    document.getElementById("s-eng").textContent = t.engS;
+    document.getElementById("o-first").textContent = t.first;
+    document.getElementById("s-first").textContent = t.firstS;
+    document.getElementById("o-les").textContent = t.les;
+    document.getElementById("s-les").textContent = t.lesS;
+    Object.keys(lines).forEach(function (n) { lines[n].className = "ln"; });
+    lines[k].classList.add("hit");
+    var big = document.getElementById("g-big");
+    big.textContent = t.big;
+    big.className = "big " + (t.eng === "none" ? "ship" : "escalate");
+    document.getElementById("g-why").textContent = t.why;
+  }
+  document.querySelectorAll("[data-t]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll("[data-t]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      setT(b.dataset.t);
+    });
+  });
+  setT("electron");
+
+  /* ----- subscription arithmetic ----- */
+  var vol = document.getElementById("s-vol");
+  function money(v) { return "$" + Math.round(v).toLocaleString("en-US"); }
+  function calc() {
+    var m = +vol.value, five = m * 60;
+    document.getElementById("o-vol").textContent = money(m);
+    document.getElementById("c-llm").textContent = money(five);
+    document.getElementById("c-ratio").textContent = money(five);
+  }
+  vol.addEventListener("input", calc); calc();
+})();
+</script>
+</body>
+</html>
