@@ -30,6 +30,11 @@
 <main>
 
 <section class="hero ht" data-ht data-calm="0,0.3,0.48,0.9" data-follow data-ink="#2F6BF0" data-step="8" data-blobs="6" data-seed="11">
+  <div class="corner" aria-hidden="true">
+    <div class="cb"><b>100K+</b><span>GitHub stars in three months</span></div>
+    <div class="cb"><b>MIT</b><span>open source, runs on your machine</span></div>
+    <div class="cb"><b>20</b><span>target types, one entry tool each</span></div>
+  </div>
   <div class="wrap grid">
     <h1 class="mega hero-title"><span>Reverse</span><span>Engineer</span><span>Anything</span></h1>
     <div>
@@ -126,21 +131,32 @@
 
 <section class="sec black ht" data-ht data-calm="0,0,0.78,1" data-ink="#8EBDF9" data-step="9" data-blobs="3" data-seed="4">
   <div class="wrap">
-    <h2 class="h2">Rent it forever, or read it once.</h2>
-    <p class="intro">Pick what you pay every month for one tool whose features are already sitting on your disk. The bar underneath is what your own build costs to run after the weekend you spend on it.</p>
-    <div class="calc">
-      <div class="knob">
-        <label for="s-vol" style="font-weight:700;font-size:13px">your subscription, per month</label>
-        <div class="num" id="o-vol">$60</div>
-        <input type="range" id="s-vol" min="5" max="300" step="5" value="60" aria-describedby="o-vol">
+    <h2 class="h2">Three kinds of claim. Only one of them is proof.</h2>
+    <p class="intro">An agent that says "this function handles the export" is guessing out loud. REA makes every statement declare what it is, and puts the file and the line behind it. Filter the trace below and watch how much of a confident answer is actually evidence.</p>
+
+    <div class="ledger">
+      <div class="lhead">
+        <div class="lfilters" role="group" aria-label="Filter claims">
+          <button type="button" data-f="observation" aria-pressed="true"><i></i>observation</button>
+          <button type="button" data-f="inference" aria-pressed="true"><i></i>inference</button>
+          <button type="button" data-f="unknown" aria-pressed="true"><i></i>unknown</button>
+        </div>
+        <div class="lcount" id="lcount"></div>
       </div>
-      <div class="bars">
-        <div><div class="lab"><span>five years of the subscription</span><span class="v" id="c-llm">$3,600</span></div><div class="b"><i id="b-llm" style="width:100%"></i></div></div>
-        <div><div class="lab"><span>five years of your own build</span><span class="v" id="c-jev">$0</span></div><div class="b jev"><i id="b-jev" style="width:0.6%"></i></div></div>
-        <p style="margin:0;font-weight:700">That is <span id="c-ratio" style="color:var(--pink)">$3,600</span> for a feature set you are allowed to open and read today.</p>
-      </div>
+
+      <ul class="claims" id="claims">
+        <li data-k="observation"><span class="ct">observation</span><p>The Export button in the window calls a handler named <code>notes:export</code>.</p><span class="ev">renderer.js : 48</span></li>
+        <li data-k="observation"><span class="ct">observation</span><p>That handler crosses into the main process through the context bridge.</p><span class="ev">preload.js : 12</span></li>
+        <li data-k="observation"><span class="ct">observation</span><p>The main process writes <code>notes.csv</code> into the Downloads folder.</p><span class="ev">main.js : 73</span></li>
+        <li data-k="observation"><span class="ct">observation</span><p>The file contains two columns, id and title, and nothing else.</p><span class="ev">main.js : 77</span></li>
+        <li data-k="inference"><span class="ct">inference</span><p>The write runs in the main process because the renderer has no filesystem access.</p><span class="ev">from the sandbox flag</span></li>
+        <li data-k="inference"><span class="ct">inference</span><p>The filename is fixed, so exporting twice overwrites the first file.</p><span class="ev">no timestamp in the path</span></li>
+        <li data-k="unknown"><span class="ct">unknown</span><p>Whether a failed write is ever surfaced to the person using the app.</p><span class="ev">no error branch in this path</span></li>
+        <li data-k="unknown"><span class="ct">unknown</span><p>What happens when the Downloads folder is read-only.</p><span class="ev">never exercised statically</span></li>
+      </ul>
     </div>
-    <p class="fine">Arithmetic, not a promise: your own number multiplied by sixty months. The rebuild still costs you a weekend and whatever tokens the investigation burns, and plenty of products are worth paying for. The point of the course is that you get to decide which ones, instead of guessing from the outside.</p>
+
+    <p class="fine">The unknowns are the point. Any model can produce a fluent paragraph about a binary it half understood, and you cannot tell the difference by reading it. A tool that never says "I do not know" is a tool that guesses, and a rebuild made from guesses fails its parity tests at the worst possible moment. Lesson 12 is about keeping this ledger honest while the investigation grows.</p>
   </div>
 </section>
 
@@ -341,16 +357,32 @@
   });
   setT("electron");
 
-  /* ----- subscription arithmetic ----- */
-  var vol = document.getElementById("s-vol");
-  function money(v) { return "$" + Math.round(v).toLocaleString("en-US"); }
-  function calc() {
-    var m = +vol.value, five = m * 60;
-    document.getElementById("o-vol").textContent = money(m);
-    document.getElementById("c-llm").textContent = money(five);
-    document.getElementById("c-ratio").textContent = money(five);
+  /* ----- evidence ledger ----- */
+  var claims = Array.prototype.slice.call(document.querySelectorAll("#claims li"));
+  var on = { observation: true, inference: true, unknown: true };
+  function ledger() {
+    var n = { observation: 0, inference: 0, unknown: 0 };
+    claims.forEach(function (li) {
+      var k = li.dataset.k;
+      var show = on[k];
+      li.classList.toggle("off", !show);
+      if (show) n[k]++;
+    });
+    var parts = [];
+    if (on.observation) parts.push(n.observation + " proven");
+    if (on.inference) parts.push(n.inference + " deduced");
+    if (on.unknown) parts.push(n.unknown + " still open");
+    document.getElementById("lcount").textContent = parts.length ? parts.join("  ·  ") : "nothing selected";
   }
-  vol.addEventListener("input", calc); calc();
+  document.querySelectorAll("[data-f]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var k = b.dataset.f;
+      on[k] = !on[k];
+      b.setAttribute("aria-pressed", String(on[k]));
+      ledger();
+    });
+  });
+  ledger();
 })();
 </script>
 </body>
