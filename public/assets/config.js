@@ -1,10 +1,10 @@
 // Everything you will ever need to edit lives in this file.
-window.REA = {
+window.JEV = {
   price: 100,                 // USD, shown on every page and used as the USDT amount
+  currency: "USD",
 
   // Stripe Payment Link (Dashboard -> Payment Links -> copy URL)
-  // TODO: create a new $100 payment link for this course, collect email, redirect to /course.html
-  stripeLink: "",
+  stripeLink: "",             // e.g. "https://buy.stripe.com/xxxxxxxx"
 
   // USDT wallets. Leave an address empty and that network is shown as unavailable.
   wallets: [
@@ -18,12 +18,11 @@ window.REA = {
 
   // Crypto buyers submit email + tx hash. With Supabase filled in, it lands in the
   // pending_payments table (see supabase.sql). Without it, it opens an email to contactEmail.
-  // TODO: new Supabase project for this course, then paste URL + publishable key here.
-  supabaseUrl: "",
+  supabaseUrl: "",            // e.g. "https://abcd1234.supabase.co"
   supabaseAnonKey: "",
   contactEmail: "",           // fallback inbox for crypto payment notices
 
-  telegram: "https://t.me/tryrx",
+  telegram: "https://t.me/+75nMf005jRpjMDU1",
   x: "https://x.com/hanakoxbt",
   agentLayers: "https://agent-layers.vercel.app",
 };
